@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 给浏览器标签页显示icon -->
+    <link rel="icon" type="image/x-icon" href="http://static.hicling.com/favicon.ico">
+    <!-- 引入外部js文件 -->
+    <script type="text/javascript" src="index.js"></script>
+    <!-- 关联外部样式表文件 -->
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <style type="text/css">
+    /* 内部样式 */
+    
+    html {
+        font-size: 14px;
+    }
+    </style>
+</head>
+
+<body>
+    <!--html文本类标签-->
+    <section>
+        <h1>格式标签</h1>
+        <section>
+            <h3>字体样式元素，如果单纯地改变文本的样式，建议您使用样式表来取得更加丰富的效果</h3>
+            <dl>
+                <dt>i -italic显示斜体文本效果</dt>
+                <dd><i>i标签斜体文本</i></dd>
+                <dt>b -bold 显示粗体文本效果</dt>
+                <dd><b>b标签粗体文本</b></dd>
+                <dt>big 显示大号文本效果</dt>
+                <dd><big>b标签大号文本</big></dd>
+                <dt>small 显示小号文本效果</dt>
+                <dd><small>small标签小号文本</small></dd>
+                <dt>del ins 定义部分删除/插入插入的文本</dt>
+                <dd>使用
+                    <del>app</del>
+                    <ins>apple</ins>手机</dd>
+                <dt>mark 定义有记号的文本</dt>
+                <dd>
+                    <mark>这是一段被标记的文本</mark>
+                </dd>
+                <dt>sub 定义下标文字 sup定义上标文字</dt>
+                <dd>这段文字包含<sub>下标</sub>
+                    <br/> 这段文字包含上标
+                    <sup>上标</sup></dd>
+                <dt>bdo -bi-directional override</dt>
+                <dd>
+                    <bdo dir="rtl">bdo定义文字方向</bdo>
+                </dd>
+            </dl>
+            <h3>
+       	以下元素都是短语元素。虽然这些标签定义的文本大多会呈现出特殊的样式，但实际上，这些标签都拥有确切的语义。
+            </h3>
+            <dl>
+                <dt>em 把文本定义为强调的内容</dt>
+                <dd><em>这是需要强调的内容</em></dd>
+                <dt>strong 把文本定义为语气更强的强调的内容</dt>
+                <dd>这是更需要强调的内容</dd>
+                <dt>kbd 定义键盘文本</dt>
+                <dd>键盘输入的单词：
+                    <kbd>word</kbd>
+                </dd>
+            </dl>
+            <h3>其它标签</h3>
+            <dl>
+                <dt>blockquote 定义长引用</dt>
+                <dd>
+                    <article>
+                        引用古人的一首诗：
+                        <blockquote>
+                            上看兑换方式;
+                            <br/> 计算机的复活；
+                            <br/> 说的话；
+                            <br/>
+                        </blockquote>
+                    </article>
+                </dd>
+                <dt>
+                    q 定义短的引用
+                </dt>
+                <dd>
+                    <p>毛主席说：
+                        <q>失败是成功之母</q>
+                    </p>
+                </dd>
+                <dt>
+                    使用 meter 元素来度量给定范围（gauge）内的数据：
+                </dt>
+                <dd>
+                    <meter form="浏览器都不支持" value="1" min="0" max="10" low="3" high="8" optimum="5"></meter>
+                </dd>
+                <dt>progress 标示任务的进度（进程）</dt>
+                <dd>
+                    <progress value="30" max="100"></progress>
+                </dd>
+            </dl>
+        </section>
+        <hr/>
+        <h1>表单标签</h1>
+        <section>
+            <form action="url/规定当提交表单时向何处发送表单数据" method="get/post/规定用于发送 form-data 的 HTTP 方法" name="规定表单的名称" target="_blank/_self/_parent/_top/规定在何处打开action URL" autocomplete="规定表单是否应该启用自动完成功能" novalidate="novalidate/如果使用该属性，则提交表单时不进行验证" accept-charset="规定服务器用哪种字符集处理表单数据" enctype="规定在发送到服务器之前应该如何对表单数据进行编码">
+            	
+            	<fieldset>
+            		<legend>input 输入控件类型</legend>
+            		<label for="text" form="form的id">text控件</label>
+            		<input id="text" type="text" name="text" placeholder="输入文本" autofocus required><br>
+
+
+            	</fieldset>
+            </form>
+
+        </section>
+    </section>
+</body>
+
+</html>
