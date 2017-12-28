@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 
 <head>
     <!-- 声明文档使用的字符编码 -->
@@ -10,32 +10,34 @@
     <meta name="renderer" content="webkit">
     <!-- 百度禁止转码  通过百度手机打开网页时，百度可能会对你的网页进行转码，脱下你的衣服，往你的身上贴狗皮膏药的广告-->
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-
     <!-- 
         SEO优化 -->
     <title>显示标签页标题</title>
-    <meta name="keywords" content="your keywords"><!-- 页面关键词 -->
-    <meta name="description" content="your description"><!-- 页面描述内容 -->
-    <meta name="author" content="author;email;address"><!-- 定义网页作者信息 -->
-    <meta name="robots" content="index,follow"><!-- 定义网页搜索引擎索引方式，robotterms 是一组使用英文逗号「,」分割的值，通常有如下几种取值：none，noindex，nofollow，all，index和follow。 -->
-
+    <meta name="keywords" content="your keywords">
+    <!-- 页面关键词 -->
+    <meta name="description" content="your description">
+    <!-- 页面描述内容 -->
+    <meta name="author" content="author;email;address">
+    <!-- 定义网页作者信息 -->
+    <meta name="robots" content="index,follow">
+    <!-- 定义网页搜索引擎索引方式，robotterms 是一组使用英文逗号「,」分割的值，通常有如下几种取值：none，noindex，nofollow，all，index和follow。 -->
     <!-- 
         网页布局在移动浏览器上显示更好 -->
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1,minimum-scale=1,user-scalable=no"> 
-    
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1,minimum-scale=1,user-scalable=no">
     <!-- 
         ios设备    -->
-    <meta name="apple-mobile-web-app-title" content="标题"> <!-- 添加到主屏后的标题（iOS 6 新增） -->
-    <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- 是否启用 WebApp 全屏模式 -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> <!-- 设置状态栏的背景颜色，只有在 `"apple-mobile-web-app-capable" content="yes"` 时生效 -->
-    <meta name="format-detection" content="telephone=no" /> <!-- 禁止数字识自动别为电话号码 -->
-
-
-        <!-- uc强制竖屏 -->
+    <meta name="apple-mobile-web-app-title" content="标题">
+    <!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 是否启用 WebApp 全屏模式 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- 设置状态栏的背景颜色，只有在 `"apple-mobile-web-app-capable" content="yes"` 时生效 -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 禁止数字识自动别为电话号码 -->
+    <!-- uc强制竖屏 -->
     <meta name="screen-orientation" content="portrait">
     <!-- QQ强制竖屏 -->
-    <meta name="x5-orientation" content="portrait">[list=1]
-    [/list]
+    <meta name="x5-orientation" content="portrait">
     <!-- UC强制全屏 -->
     <meta name="full-screen" content="yes">
     <!-- QQ强制全屏 -->
@@ -44,8 +46,6 @@
     <meta name="browsermode" content="application">
     <!-- QQ应用模式 -->
     <meta name="x5-page-mode" content="app">
-
-
     <!-- 给浏览器标签页显示icon -->
     <link rel="icon" type="image/x-icon" href="http://static.hicling.com/favicon.ico">
     <!-- 引入外部js文件 -->
@@ -100,7 +100,7 @@
                 <dt>em 把文本定义为强调的内容</dt>
                 <dd><em>这是需要强调的内容</em></dd>
                 <dt>strong 把文本定义为语气更强的强调的内容</dt>
-                <dd>这是更需要强调的内容</dd>
+                <dd><strong>这是更需要强调的内容</strong></dd>
                 <dt>kbd 定义键盘文本</dt>
                 <dd>键盘输入的单词：
                     <kbd>word</kbd>
@@ -113,9 +113,10 @@
                     <article>
                         引用古人的一首诗：
                         <blockquote>
-                            上看兑换方式;
-                            <br/> 计算机的复活；
-                            <br/> 说的话；
+                            窗前明月光，
+                            <br/> 疑是地上霜。
+                            <br/> 举头望明月，
+                            <br/> 低头思故乡。
                             <br/>
                         </blockquote>
                     </article>
@@ -136,14 +137,18 @@
                 </dd>
                 <dt>progress 标示任务的进度（进程）</dt>
                 <dd>
-                    <progress value="30" max="100"></progress>
+                    <progress value="30" max="100" id="progress"></progress>
                 </dd>
             </dl>
         </section>
         <hr/>
+    </section>
+    <!--html文本类标签 end-->
+    <!-- 表单标签 -->
+    <section>
         <h1>表单标签</h1>
         <section>
-            <form action="url/规定当提交表单时向何处发送表单数据" method="get/post/规定用于发送 form-data 的 HTTP 方法" name="规定表单的名称" target="_blank/_self/_parent/_top/规定在何处打开action URL" autocomplete="规定表单是否应该启用自动完成功能" novalidate="novalidate/如果使用该属性，则提交表单时不进行验证" accept-charset="规定服务器用哪种字符集处理表单数据" enctype="规定在发送到服务器之前应该如何对表单数据进行编码">
+            <form action="url/规定当提交表单时向何处发送表单数据" method="get/post/规定用于发送 form-data 的 HTTP 方法" name="规定表单的名称" target="_blank/_self/_parent/_top/规定在何处打开action URL" autocomplete="规定表单是否应该启用自动完成功能" novalidate="novalidate/如果使用该属性，则提交表单时不进行验证" accept-charset="规定服务器用哪种字符集处理表单数据" enctype="规定在发送到服务器之前应该如何对表单数据进行编码application/x-www-form-urlencodeed|multipart/form-data|text/plain">
                 <fieldset>
                     <legend>input 输入控件类型</legend>
                     <label for="text" form="form的id">text控件</label>
@@ -160,6 +165,10 @@
             </form>
         </section>
     </section>
+    <!-- 表单标签 end -->
+    <script type="text/javascript">
+  
+    </script>
 </body>
 
 </html>
