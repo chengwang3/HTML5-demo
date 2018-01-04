@@ -16,7 +16,7 @@
     }
 
     .item {
-
+        text-align: center;
         height: 100px;
         background-color: orange;
     }
@@ -62,7 +62,7 @@
                     <li>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用:flex-start | flex-end | center | space-between | space-around | stretch</li>
                 </ol>
             </dd>
-            <dt>三.示例</dt>
+            <dt>三.容器上属性示例</dt>
             <dd>
                 <section>
                     <p>1.容器display:flex</p>
@@ -100,8 +100,99 @@
                         <div class="item"></div>
                     </div>
                 </section>
+                <section>
+                    <p>4.align-content</p>
+                    <div class="box" style="display:flex;flex-wrap:wrap;align-content:flex-end">
+                        <div style="display:flex">
+                            <div class="item" style="height:30px"></div>
+                            <div class="item" style="height:30px"></div>
+                            <div class="item" style="height:30px"></div>
+                            <div class="item" style="height:30px"></div>
+                        </div>
+                        <div style="margin-top:30px;display:flex">
+                            <div class="item" style="height:30px"></div>
+                            <div class="item" style="height:30px"></div>
+                            <div class="item" style="height:30px"></div>
+                            <div class="item" style="height:30px"></div>
+                        </div>
+                        <div style="margin-top:30px;display:flex">
+                            <div class="item" style="height:30px"></div>
+                            <div class="item" style="height:30px"></div>
+                            <div class="item" style="height:30px"></div>
+                            <div class="item" style="height:30px"></div>
+                        </div>
+                    </div>
+                </section>
+            </dd>
+            <dt>四.项目上的属性</dt>
+            <dd>
+                <ol>
+                    <li>order属性定义项目的排列顺序。数值越小，排列越靠前，
+                        <mark>默认为0</mark>。</li>
+                    <li>flex-grow属性定义项目的放大比例，
+                        <mark>默认为0</mark>，即如果存在剩余空间，也不放大。如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</li>
+                    <li>flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为
+                        <mark>0</mark>，其他项目都为1，则空间不足时，前者不缩小。</li>
+                    <li>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</li>
+                    <li>flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</li>
+                    <li>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</li>
+                </ol>
+            </dd>
+            <dt>五.项目上属性示例</dt>
+            <dd>
+                <section>
+                    <p>1.order</p>
+                    <div class="box" style="display: flex;flex-direction:row">
+                        <div class="item">1-100px</div>
+                        <div class="item" style="order:4">2-150px</div>
+                        <div class="item">3-200px</div>
+                        <div class="item" style="order:1">4-100px</div>
+                    </div>
+                </section>
+                <section>
+                    <p>2.flex-grow</p>
+                    <div class="box" style="display: flex;flex-direction:row">
+                        <div class="item" style="flex-grow:1">1-100px</div>
+                        <div class="item" style="flex-grow:1">2-150px</div>
+                        <div class="item" style="flex-grow:1">3-200px</div>
+                        <div class="item" style="flex-grow:1">4-100px</div>
+                    </div>
+                </section>
+                <section>
+                    <p>2.flex-shrink</p>
+                    <div style="display: flex;flex-direction:row;width:500px;background-color:gray">
+                        <div class="item"style="flex-shrink:0">1-100px</div>
+                        <div class="item">2-150px</div>
+                        <div class="item">3-200px</div>
+                        <div class="item">4-100px</div>
+                    </div>
+                </section>
+                <section>
+                    <p>3.flex</p>
+                    <div style="display: flex;flex-direction:row;background-color:gray">
+                        <div class="item" style="flex:1 0 auto">1-100px</div>
+                        <div class="item">2-150px</div>
+                        <div class="item">3-200px</div>
+                        <div class="item">4-100px</div>
+                    </div>
+                </section>
+                <section>
+                    <p>4.algin-self</p>
+                    <div style="display: flex;flex-direction:row;background-color:gray;height:400px">
+                        <div class="item" style="align-self:flex-start">1-100px</div>
+                        <div class="item" style="align-self:center">2-150px</div>
+                        <div class="item" style="align-self:flex-end">3-200px</div>
+                        <div class="item">4-100px</div>
+                    </div>
+                </section>
             </dd>
         </dl>
+    </section>
+    <section>
+    	<p>参考文章：</p>
+    	<ol>
+    		<li><a href="http://blog.csdn.net/maxbyzhou/article/details/68947681">Flex 布局之详解</a></li>
+    	</ol>
     </section>
 </body>
 
