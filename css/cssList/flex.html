@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>flex弹性盒模型使用</title>
+    <style type="text/css">
+    section {
+        margin-bottom: 20px;
+    }
+
+    .box {
+        width: 800px;
+        height: 300px;
+        background-color: gray;
+    }
+
+    .item {
+
+        height: 100px;
+        background-color: orange;
+    }
+
+    .item:nth-child(1) {
+        width: 100px;
+    }
+
+    .item:nth-child(2) {
+        margin-left: 20px;
+        width: 150px;
+    }
+
+    .item:nth-child(3) {
+        margin-left: 50px;
+        width: 200px;
+    }
+
+    .item:nth-child(4) {
+        margin-left: 30px;
+        width: 100px;
+    }
+    </style>
+</head>
+
+<body>
+    <section>
+        <p>任何一个容器可以指定为flex布局 .box{display:lex} 或 .box{display:inline-flex}</p>
+        <dl>
+            <dt>一.基本概念</dt>
+            <dd>
+                <p>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。</p>
+                <img src="http://www.runoob.com/wp-content/uploads/2015/07/3791e575c48b3698be6a94ae1dbff79d.png">
+            </dd>
+            <dt>二.设置在容器上的属性</dt>
+            <dd>
+                <ol>
+                    <li>flex-direction属性决定主轴的方向:row(默认值)|row-reverse|column|column-reverse</li>
+                    <li>flex-wrap如果一条轴线排不下，如何换行:nowrap(默认值)|wrap|wrap-reverse</li>
+                    <li>flex-flow是flex-direction属性和flex-wrap属性的简写形式，默认值row nowrap</li>
+                    <li>justify-content定义了项目在主轴上的对齐方式:flex-start|flex-end|center|space-between|space-around</li>
+                    <li>align-items定义项目在交叉轴上如何对齐:flex-start|flex-end|center|baseline|stretch</li>
+                    <li>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用:flex-start | flex-end | center | space-between | space-around | stretch</li>
+                </ol>
+            </dd>
+            <dt>三.示例</dt>
+            <dd>
+                <section>
+                    <p>1.容器display:flex</p>
+                    <div class="box" style="display: flex;flex-direction:row">
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                    </div>
+                </section>
+                <section>
+                    <p>2.flex-direction:column</p>
+                    <div class="box" style="display: flex;flex-direction:column">
+                        <div class="item"></div>
+                        <div class="item" style="margin-top: 10px"></div>
+                        <div class="item" style="margin-top: 10px"></div>
+                        <div class="item" style="margin-top: 10px"></div>
+                    </div>
+                </section>
+                <section>
+                    <p>3.justify-content:space-around</p>
+                    <div class="box" style="display: flex;justify-content:space-around">
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                    </div>
+                </section>
+                <section>
+                    <p>3.align-items</p>
+                    <div class="box" style="display: flex;justify-content:space-around;align-items:center">
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                    </div>
+                </section>
+            </dd>
+        </dl>
+    </section>
+</body>
+
+</html>

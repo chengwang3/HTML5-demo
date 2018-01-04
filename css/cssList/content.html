@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>content</title>
+    <style type="text/css">
+    section {
+        margin-bottom: 20px;
+    }
+
+   ul li img {
+        width: 100px;
+        height: 100px;
+    }
+    /*插入计数器*/
+
+    ul {
+        list-style: none;
+        counter-reset: newList;
+    }
+
+    ul li:before {
+        content: "美女" counter(newList) ":";
+        counter-increment: newList;
+    }
+    /*插入标签属性值*/
+
+    p[data-name]:after {
+        content: attr(data-name);
+        color: red;
+    }
+    /*插入图片*/
+
+    p.insetImg {
+        position: relative;
+    }
+
+    p.insetImg:after {
+        position: absolute;
+        left: 218px;
+        content: url('../../img/logo_f.png');
+    }
+    /*插入quotes属性值*/
+    p.insetQuotes {
+        quotes: '<' '>';
+    }
+
+    p.insetQuotes:before {
+        content: open-quote;
+    }
+
+    p.insetQuotes:after {
+        content: close-quote;
+    }
+    /*after伪类+content实现的图片垂直居中*/
+    div.box{
+    	width: 450px;
+    	height: 450px;
+    	background-color: #666;
+    	text-align: center;/*使图像水平居中*/
+
+    }
+    div.box .img1{
+    	vertical-align: middle;
+    	width: 100px;
+    	height: 100px;
+    }
+     div.box .img2{
+    	vertical-align: middle;
+    	width: 1px;
+    	height: 100%;
+    	opacity: 0;
+    }
+     div.box .img3{
+     	vertical-align: middle;
+     	display: inline-block;
+     	width: 1px; /*宽度为0也可以*/
+    	height: 100%;
+     }
+    div.box1 .img4{
+    	vertical-align: middle;
+    } 
+   div.box1:after{
+    	display: inline-block;
+    	width: 0;
+    	height: 100%;
+    	content: "";
+    	vertical-align: middle;
+    	overflow: hidden;
+    }
+    /*:after伪类+content 清除浮动*/
+    .clearFloat:after{
+    	display: block;
+       content: "";
+       height: 0;
+       clear: both;
+       overflow: hidden;
+       visibility: hidden;
+
+    }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h3>一.使用content和counter递增</h3>
+        <ul>
+            <li><img src="../../img/mm1.jpg"></li>
+            <li><img src="../../img/mm2.jpg"></li>
+        </ul>
+    </section>
+    <section>
+        <h3>
+    		二.使用content插入标签属性值
+    	</h3>
+        <p data-name="我是被插入的属性值">插入：</p>
+    </section>
+    <section>
+        <h3>
+    		三.使用content插入一个外部资源（图像，声频，视频）
+    	</h3>
+        <p class="insetImg">这段文字后面插入了一个图像</p>
+    </section>
+    <section>
+        <h3>
+    		四.使用content插入quotes属性的标记
+    	</h3>
+        <p class="insetQuotes">一段文字将被插入引号</p>
+    </section>
+      <section>
+        <h3>
+    		五.:after伪类+content实现的图片垂直居中方法
+    	</h3>
+    	<p> 1.两个图片利用vertical-align会垂直对齐，然后将后面的图片宽度设为1px，高度设为100%，透明度为0，就实现前面图片在div中垂直居中</p>
+        <div class="box">
+       
+        	<img class="img1" src="../../img/mm1.jpg">
+        	<img class="img2" src="../../img/mm2.jpg">
+        </div>
+        <p> 2.只要是inline-block属性或是类似inline-block属性的元素就可以了，于是后来就使用span或是i标签等代替1像素宽的透明图片，于是节约了一次图片链接请求</p>
+        <div class="box">
+       
+        	<img class="img1" src="../../img/mm1.jpg">
+        	<span class="img3"></span>
+        </div>
+        <p> 3.利用content内容生成技术，0宽度的实体标签用:after伪类+content生成，这样，就避免了在页面上写入辅助效果的空标签，同时借助了淘宝前端多年之前发现的font-size居中方法</p>
+        <div class="box box1">
+       
+        	<img class="img4" src="../../img/mm1.jpg">
+        	
+        </div>
+    </section>
+    <section>
+    	<h3>:after伪类+content 清除浮动的影响</h3>
+    	<p>1.一般不含包裹属性的div内部有浮动元素的话，那么这个浮动元素会让此div的高度塌陷</p>
+    	<div style="padding: 10px; background-color:gray">
+    		<img src="../../img/mm1.jpg" style="float: left">
+    	</div>
+    	<p style="clear:left;">2.:after伪类+content 清除浮动</p>
+    	<div class="clearFloat" style="background-color:gray">
+    		<img src="../../img/mm1.jpg" style="float: left">
+    	</div>
+    </section>
+    <section>
+        <h4>详情参考文章</h4>
+        <ol>
+            <li><a href="http://www.zhangxinxu.com/wordpress/2010/04/css-content%E5%86%85%E5%AE%B9%E7%94%9F%E6%88%90%E6%8A%80%E6%9C%AF%E4%BB%A5%E5%8F%8A%E5%BA%94%E7%94%A8/">CSS content内容生成技术以及应用</a></li>
+            <li><a href="http://www.zhangxinxu.com/wordpress/2010/09/after%E4%BC%AA%E7%B1%BBcontent%E5%86%85%E5%AE%B9%E7%94%9F%E6%88%90%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B/"></a>:after伪类+content内容生成经典应用举例</li>
+        </ol>
+    </section>
+</body>
+
+</html>
