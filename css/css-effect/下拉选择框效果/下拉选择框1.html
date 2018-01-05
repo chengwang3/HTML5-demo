@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉选择框效果1</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style type="text/css">
+		body,ul,p,li{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #0c9;
+			color: #333;
+		}
+        .contain{
+            padding-top: 30px;
+            font-size: 16px;
+        }
+        .select{
+        	position: relative;
+        	margin: 0 auto;
+        	width: 300px;
+        	height: 40px;
+        	background-color: #fff;
+        }
+        .select:after{
+        	content: "";
+        	display: block;
+        	width: 10px;
+        	height: 10px;
+        	border-left: 1px solid #ccc;
+        	border-bottom: 1px solid #ccc;
+        	position: absolute;
+        	top: 11px;
+        	right: 12px;
+        	transform: rotate(-45deg);
+        	transition: all .3s ease-in;
+
+
+        }
+        /*点击后产生*/
+        .select.open:after{
+        	top: 18px;
+        	transform: rotate(-225deg);
+        	transition: all .3s ease-in;
+        }
+        .select p{
+        	padding: 0 15px;
+        	line-height: 40px;
+        	cursor: pointer;
+        }
+        .select ul{
+        	list-style-type: none;
+        	position: absolute;
+        	top: 40px;
+        	left: 0;
+        	background-color: #fff;
+        	width: 100%;
+        	max-height: 0;
+        	overflow-y: auto;
+        	transition: max-height .3s ease-in;/*增加收缩时的过渡效果*/
+
+        }
+        .select.open ul{
+        	max-height: 250px;
+        	transition: max-height .2s ease-in;/*增加伸张时的过渡效果*/
+        	transform-origin: 50% 0;
+        	animation: showDown .5s ease-in;
+        }
+        .select ul li{
+        	padding: 0 15px;
+        	line-height: 40px;
+        	cursor: pointer;
+        }
+        /*增加悬浮在列表相上的效果*/
+        .select ul li:hover{
+        	background-color: #e0e0e0;
+        }
+        /*增加选中后的列表的背景和字体颜色*/
+        .select ul li.selected{
+        	background-color: #39f;
+            color: #fff;
+        }
+        @keyframes showDown{
+        	0% {transform:scale(1,0)}
+        	25%{transform:scale(1,1.2)}
+        	50%{transform:scale(1,0.85)}
+        	75%{transform:scale(1,1.05)}
+        	100%{transform:scale(1,1)}
+        }
+
+	</style>
+</head>
+<body>
+	<div class="contain">
+		<div class="select">
+			<p>所有选项</p>
+			<ul>
+				<li data-value="所有选项" class="selected">所有选项</li>
+				<li data-value="html">html</li>
+				<li data-value="css">css</li>
+				<li data-value="javascript">javascript</li>
+				<li data-value="jQuery">jQuery</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			// 点击下拉框时展开
+			$(".select>p").on("click",function(e){
+				$(".select").toggleClass('open');
+				e.stopPropagation();
+			})
+			// 选中列表相时下拉框文字改变，列表项背景字体颜色改变，同时下拉框收缩
+            $(".select ul>li").on('click',function(e){
+                var _self = $(this);
+                 $(".select>p").text(_self.data('value'));
+                _self.addClass("selected").siblings().removeClass("selected");
+                $(".select").removeClass("open");
+                e.stopPropagation();
+            })
+            //点击其它地方时下拉框收缩
+			$("body").on('click',function(){
+				$(".select").removeClass("open");
+			})
+		})
+
+	</script>
+</body>
+</html>
