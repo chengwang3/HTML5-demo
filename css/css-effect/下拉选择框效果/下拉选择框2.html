@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉选择框2</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+
+			background-color: #0c9;/*宽度默认继承父级和浏览器窗口等宽，而高度默认不继承为0,背景色，既不属于body标签，也不属于html，它属于更底层的那个底板，是浏览器窗口本身吸收了body和html标签中更靠近自己的那个后，渲染出来的浏览器窗口底板的颜色。*/
+            color: #333;
+		}
+		.content{
+            padding-top: 20%;/*基于父元素的宽度的百分比的内边距*/
+		}
+		.select{
+			font-family: "Microsoft Yahei";
+			position: relative;
+			width: 300px;
+			height: 40px;
+			background-color: #fff;
+			margin: 0 auto;
+		}
+		.select>p{
+			text-align: center;
+			line-height: 40px;
+			padding: 0 15px;
+			cursor: pointer;
+		}
+		.select i{
+			position: absolute;
+			right: 15px;
+			top: 12px;
+			width: 20px;
+			height: 16px;
+			border-top: 3px solid #ccc;
+			border-bottom: 3px solid #ccc;
+			box-sizing: border-box;
+		}
+		.select i:after{
+			content: "";
+			display: block;
+			width: 20px;
+			height: 3px;
+			background-color: #ccc;
+			position: absolute;
+			top: 3.5px;
+		}
+        .select ul{
+        	width: 100%;
+        	list-style-type: none;
+        	background-color: #fff;
+        	position: absolute;
+        	left: 0;
+        	top: 0;
+        	height: 0;
+        	overflow: hidden;
+        	transition: all .3s ease-in;
+        	
+        }
+        .select ul li{
+        	line-height: 40px;
+        	padding: 0 15px;
+        	cursor: pointer;
+        	opacity: 0;
+        	transform: translateX(300px);
+        }
+        .select ul li.selected{
+        	color:#0c9;
+        }
+        .select ul li:hover{
+        	background-color:#e0e0e0;
+        }
+        .select.open ul{
+        	height: 200px;
+        	top: -80px;
+        	transition: all .2s ease-in;
+        	
+        }
+        .select.open ul li{
+        	transform: translateX(0);
+            opacity: 1;
+        }
+        .select.open ul li:nth-child(1){
+          transition: all .3s ease-in .05s;
+        }
+        .select.open ul li:nth-child(2){
+          transition: all .3s ease-in .01s;
+        }
+        .select.open ul li:nth-child(3){
+          transition: all .3s ease-in .15s;
+        }
+        .select.open ul li:nth-child(4){
+          transition: all .3s ease-in .2s;
+        }
+        .select.open ul li:nth-child(5){
+          transition: all .3s ease-in .25s;
+        }
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="select js-selecte">
+			<p>css</p>
+			<i></i>
+			<ul>
+				<li data-value="所有选项" class="selected">所有选项</li>
+				<li data-value="html">html</li>
+				<li data-value="css">css</li>
+				<li data-value="javascript">javascript</li>
+				<li data-value="jQuery">jQuery</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(".js-selecte>p").on("click",function(e){
+			$(".js-selecte").toggleClass("open");
+			e.stopPropagation();
+		})
+		$(".js-selecte ul li").on("click",function(e){
+			var _self = $(this);
+			$(".js-selecte>p").text(_self.data("value"));
+			_self.addClass("selected").siblings().removeClass("selected");
+			$(".js-selecte").removeClass("open");
+			e.stopPropagation();
+
+		})
+		$("body").on("click",function(){
+			$(".js-selecte").removeClass("open");
+		})
+	</script>
+</body>
+</html>
