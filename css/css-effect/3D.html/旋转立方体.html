@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>旋转立方体</title>
+	<style type="text/css">
+		html{
+			background: linear-gradient(#ff0 0%,#000 80%);
+			height: 100%;
+		}
+		.wrap{
+			margin-top: 10%;
+			perspective: 1000px;/*设置透视点*/
+			/*perspective-origin:50% 50%*/
+		}
+		@keyframes rotate{
+			0%{transform:rotateX(0) rotateY(0)}
+			100%{transform:rotateX(360deg) rotateY(360deg)}
+		}
+		.cube{
+			margin: auto;
+			position: relative;
+			width: 200px;
+			height: 200px;
+			transform-style: preserve-3d;/*设置转换为3D转换*/
+			/*transform: rotateY(10deg) rotateX(0deg)*/
+			animation: rotate 12s infinite linear;
+		}
+		.cube>div{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			border: 1px solid #fff;
+			text-align: center;
+			line-height: 200px;
+			font-family: "Microsoft-Yahei";
+			color: #fff;
+			font-weight: bold;
+			font-size: 40px;
+			background-color: #333;
+			opacity: .9;
+			transition: transform .2s ease-in;
+		}
+		.cube>div:nth-child(1){
+			transform: translateZ(100px);
+		}
+		.cube>div:nth-child(2){
+			transform: rotateY(180deg) translateZ(100px);
+		}
+		.cube>div:nth-child(3){
+			transform: rotateY(90deg) translateZ(100px);
+		}
+		.cube>div:nth-child(4){
+			transform: rotateY(-90deg) translateZ(100px);
+		}
+		.cube>div:nth-child(5){
+			transform: rotateX(90deg) translateZ(100px);
+		}
+		.cube>div:nth-child(6){
+			transform: rotateX(-90deg) translateZ(100px);
+		}
+		.wrap:hover .cube>div{
+			transition: transform .2s ease-in;
+		}
+		/*鼠标悬浮在立方体上时，立方体每个界面向外移动*/
+		.wrap:hover .out-front{
+			transform: translateZ(200px);
+		}
+		.wrap:hover .out-back{
+			transform:rotateY(180deg) translateZ(200px);
+		}
+		.wrap:hover .out-left{
+			transform:rotateY(90deg) translateZ(200px);
+		}
+		.wrap:hover .out-right{
+			transform:rotateY(-90deg) translateZ(200px);
+		}
+		.wrap:hover .out-top{
+			transform:rotateX(90deg) translateZ(200px);
+		}
+		.wrap:hover .out-bottom{
+			transform:rotateX(-90deg) translateZ(200px);
+		}
+		/*里面的小立方体*/
+		.cube>span{
+			position: absolute;
+			left: 50px;
+			top: 50px;
+			width: 100px;
+			height: 100px;
+			background-color: #999;
+			transform-style: preserve-3d;
+		}
+        .in-front{
+        	transform: translateZ(50px);
+        }
+        .in-back{
+        	transform: rotateY(180deg) translateZ(50px);
+        }
+        .in-left{
+        	transform: rotateY(90deg) translateZ(50px);
+        }
+        .in-right{
+        	transform: rotateY(-90deg) translateZ(50px);
+        }
+        .in-top{
+        	transform: rotateX(90deg) translateZ(50px);
+        }
+        .in-bottom{
+        	transform: rotateX(-90deg) translateZ(50px);
+        }
+
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="cube">
+			<div class="out-front">前面</div>
+			<div class="out-back">后面</div>
+			<div class="out-left">左面</div>
+			<div class="out-right">右面</div>
+			<div class="out-top">上面</div>
+			<div class="out-bottom">下面</div>
+			<span class="in-front"></span>
+			<span class="in-back"></span>
+			<span class="in-left"></span>
+			<span class="in-right"></span>
+			<span class="in-top"></span>
+			<span class="in-battom"></span>
+		</div>
+	</div>	
+</body>
+</html>
