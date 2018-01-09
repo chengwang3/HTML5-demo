@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> 绝对定位居中技术</title>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+    .contain {
+        position: relative;
+        margin: 10px auto;
+        width: 600px;
+        height: 300px;
+        background-color: #baefa0;
+        overflow: auto;
+    }
+
+    h6 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .center-container {
+        position: relative;
+    }
+
+    .absolute-center {
+        width: 50%;
+        height: 50%;
+        background-color: #65c6c0;
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .absolute-center.is-fixed {
+        position: fixed;
+        z-index: 999;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .button {
+        width: 50px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        color: #fff;
+        background-color: #3958d3;
+        cursor: pointer;
+        position: absolute;
+        bottom: 10px;
+    }
+
+    .show {
+        left: 20px;
+    }
+
+    .hide {
+        left: 90px;
+    }
+
+    .absolute-center.is-right {
+        right: 0;
+        left: auto;
+    }
+
+    .absolute-center.is-responsive {
+        width: 60%;
+        height: 60%;
+        min-width: 400px;
+        min-height: 200px;
+        padding: 40px;
+    }
+
+    .absolute-center.is-overflow {
+        overflow: auto;
+    }
+
+    .absolute-center.is-resize {
+        min-width: 20%;
+        max-width: 80%;
+        min-height: 20%;
+        max-height: 80%;
+        resize: both;
+        overflow: auto;
+    }
+
+    .absolute-center.is-img {
+        height: auto;
+    }
+
+    .absolute-center.is-img img {
+        width: 100%;
+        height: auto;
+    }
+
+    .absolute-center.is-variable {
+        display: table;
+        height: auto;
+    }
+
+    .is-negative {
+        width: 300px;
+        height: 200px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -150px;
+        margin-top: -100px;
+        background-color: #65c6c0;
+    }
+
+    .is-tansformed {
+        background-color: #65c6c0;
+        width: 50%;
+        margin: auto;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .is-table{
+    	display: table;
+    }
+    .is-table .table-tell{
+    	display: table-cell;
+    	vertical-align: middle;
+    	border: 1px solid red;
+    }
+    .table-tell .center-block{
+    	width: 50%;
+    	margin: 0 auto;
+    	background-color: #65c6c0;
+    }
+    .box{
+    	text-align: center;
+    }
+    .box:after{
+    	display: inline-block;
+    	content: "";
+    	width: 0;
+    	height: 100%;
+    	vertical-align: middle;
+    }
+    .is-inlineblock{
+    	background-color: #65c6c0;
+    	display: inline-block;
+    	width: 50%;
+    	height: 50%;
+    	vertical-align: middle;
+    }
+   
+    </style>
+</head>
+
+<body>
+    <section class="contain">
+        <h3>绝对定位居中(Absolute Centering)技术</h3>
+        <h4>优点：</h4>
+        <ol>
+            <li>支持跨浏览器，包括IE8-IE10.</li>
+            <li>无需其他特殊标记，CSS代码量少</li>
+            <li>支持百分比%属性值和min-/max-属性</li>
+            <li>只用这一个类可实现任何内容块居中</li>
+            <li>不论是否设置padding都可居中（在不使用box-sizing属性的前提下）</li>
+            <li>内容块可以被重绘。</li>
+            <li>完美支持图片居中</li>
+        </ol>
+        <h4>缺点</h4>
+        <ol>
+            <li>必须声明高度（查看可变高度Variable Height）。</li>
+            <li>建议设置overflow:auto来防止内容越界溢出。（查看溢出Overflow）。</li>
+            <li>在Windows Phone设备上不起作用。</li>
+        </ol>
+    </section>
+    <h3>一.容器内</h3>
+    <p>父容器设置为position:relative</p>
+    <section class="contain">
+        <div class="absolute-center">
+            <p>内容块绝对定位水平垂直居中</p>
+        </div>
+    </section>
+    <h3>二.视区内</h3>
+    <p>fixed定位，在视区内水平垂直居中</p>
+    <section class="contain">
+        <div class="show button"> 显示</div>
+        <div class="hide button"> 隐藏</div>
+        <div class="absolute-center is-fixed hidden">
+        </div>
+    </section>
+    <h3>三.边栏</h3>
+    <p>可以将内容块固定与屏幕的左侧或右侧，并且保持内容块垂直居中。使用right:0;left:auto;固定于屏幕右侧，使用left:0;right:auto;固定与屏幕左侧。</p>
+    <section class="contain">
+        <div class="absolute-center is-right"> </div>
+    </section>
+    <h3>四.响应式/自适应</h3>
+    <p>绝对居中最大的优势应该就是对百分比形式的宽高支持的非常完美。甚至min-width/max-width 和min-height/max-height这些属性在自适应盒子内的表现也和预期很一致。</p>
+    <section class="contain">
+        <div class="absolute-center is-responsive"> </div>
+    </section>
+    <h3>五.溢出居中</h3>
+    <p>加上overflow: auto会在内容高度超过容器高度的情况下给内容块显示滚动条而不越界。</p>
+    <section class="contain">
+        <div class="absolute-center is-overflow">
+            内容高度大于块元素或容器（视区viewport或设为position:relative的父容器）会溢出，这时内容可能会显示到块与容器的外面，或者被截断出现显示不全（分别对应内容块overflow属性设置为visible和hidden的表现）。 加上overflow: auto会在内容高度超过容器高度的情况下给内容块显示滚动条而不越界。
+        </div>
+    </section>
+    <h3>六.重绘居中</h3>
+    <p>可以使用其他class类或javascript代码来重绘内容块同时保证居中，无须手动重新计算中心尺寸。当然，你也可以添加resize属性来让用户拖拽实现内容块的重绘。</p>
+    <section class="contain">
+        <div class="absolute-center is-resize">
+        </div>
+    </section>
+    <h3>七.图片居中</h3>
+    <p></p>
+    <section class="contain">
+        <div class="absolute-center is-img">
+            绝对居中（AbsoluteCentering）也适用于图片。对图片自身应用class类或CSS样式，并给图片添加height:auto样式，图片会自适应居中显示，如果外层容器可以resize则随着容器的重绘，图片也相应重绘，始终保持居中。
+            <img src="../../../img/mm1.jpg">
+        </div>
+    </section>
+    <h3>八.可变高度</h3>
+    <p>浏览器兼容性不太好</p>
+    <section class="contain">
+        <div class="absolute-center is-variable">
+            浏览器兼容性不太好，若Modernizr不能满足你的需求，你需要寻找其他方法解决。 1.与上述重绘(Resizing)情况的方法不兼容 2.Firefox/IE8:使用display:table会使内容块垂直居上，不过水平还是居中的。 3.IE9/10: 使用display:table会使内容块显示在容器左上角。 4.Mobile Safari:内容块垂直居中；若使用百分比宽度，水平方向居中会稍微偏离中心位置。
+        </div>
+    </section>
+    <h3>其它居中实现技术</h3>
+    <p>绝对居中（Absolute Centering）是一种非常不错的技术，除此之外还有一些方法可以满足更多的具体需求，最常见的推荐：NegativeMargins, Transforms,Table-Cell, Inline-Block方式和新出现的Flexbox.方式。</p>
+    <dl>
+        <dt>一.负外边距(Negative Margins)</dt>
+        <dd>
+            <section class="contain">
+                <div class="is-negative">
+                    这或许是当前最流行的使用方法。如果块元素尺寸已知，可以通过以下方式让内容块居中于容器显示： 外边距margin取负数，大小为width/height（不使用box-sizing: border-box时包括padding，）的一半，再加上top: 50%; left: 50%;
+                </div>
+            </section>
+        </dd>
+        <dt>二.变形（Transforms）</dt>
+        <dd>
+            <section class="contain">
+                <div class="is-tansformed">
+                    这是最简单的方法，不近能实现绝对居中同样的效果，也支持联合可变高度方式使用。内容块定义transform: translate(-50%,-50%)必须带上浏览器厂商的前缀，还要加上 top: 50%; left: 50%;
+                </div>
+            </section>
+        </dd>
+        <dt>三.表格单元格（Table-Cell）</dt>
+        <dd>
+            <div class="contain is-table">
+                <div class="table-tell">
+                    <div class="center-block">
+                      总的说来这可能是最好的居中实现方法，因为内容块高度会随着实际内容的高度变化，浏览器对此的兼容性也好。最大的缺点是需要大量额外的标记，需要三层元素让最内层的元素居中。
+                    </div>
+                </div>
+            </div>
+        </dd>
+        <dt>四.行内块元素（Inline-Block）</dt>
+        <dd>
+        	<section class="contain box">	
+        	<div class="is-inlineblock">	
+        	</div>
+        	</section>
+        </dd>
+    </dl>
+    <footer>
+        <h3>参考链接</h3>
+        <ol>
+            <li><a href="http://blog.csdn.net/freshlover/article/details/11579669">盘点8种CSS实现垂直居中水平居中的绝对定位居中技术</a></li>
+        </ol>
+    </footer>
+    <script>
+    $(".show").on("click", function(e) {
+        $(".is-fixed").removeClass('hidden');
+        e.stopPropagation();
+
+    })
+    $(".hide").on("click", function() {
+        $(".is-fixed").addClass("hidden");
+    })
+    </script>
+</body>
+
+</html>
