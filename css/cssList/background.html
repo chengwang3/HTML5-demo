@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>css background</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* background-size */
+        .bg-size li {
+            background-image: url('../../img/mm1.jpg');
+            background-repeat: no-repeat;
+            width: 400px;
+            height: 400px;
+            border: 1px solid red;
+            margin-bottom: 20px;
+        }
+
+        .bg-size li:nth-child(2) {
+            width: 300px;
+            height: 200px;
+        }
+
+
+        .bg-size .auto {
+
+            background-size: auto;
+        }
+
+        .bg-size .cover {
+
+            background-size: cover;
+        }
+
+        .bg-size .contain {
+
+            background-size: contain;
+        }
+
+        .bg-size .length {
+            background-size: 300px 200px;
+        }
+
+        .bg-size .percentage {
+            background-size: 50% 50%;
+        }
+
+        /* background-clip */
+        .bg-clip li {
+            /* background-image: url('../../img/mm1.jpg'); */
+            background-color: aqua;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            margin-bottom: 20px;
+
+        }
+
+        .bg-clip .border-box {
+            border: 10px dashed red;
+            padding: 30px;
+            background-clip: border-box;
+        }
+
+        .bg-clip .padding-box {
+            border: 10px dashed red;
+            padding: 30px;
+            background-clip: padding-box;
+        }
+
+        .bg-clip .content-box {
+            padding: 30px;
+            background-clip: content-box;
+        }
+
+        .bg-clip .text {
+            background-image: url('../../img/mm2.jpg');
+            -webkit-background-clip: text;
+            /* */
+            -webkit-text-fill-color: transparent;
+            /*将文字透明*/
+
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h3>background-size</h3>
+        <ul class="bg-size">
+            <li class="auto">
+                <h5>auto 默认值</h5>
+                <p> 背景图像的真实大小。</p>
+            </li>
+            <li class="cover">
+                <h5>cover</h5>
+                <p>将背景图像等比缩放或放大到完全覆盖容器，背景图像有可能超出容器。</p>
+            </li>
+            <li class="contain">
+                <h5>contain</h5>
+                <p>将背景图像等比缩放到宽度或高度与容器的宽度或高度相等，背景图像始终被包含在容器内。</p>
+            </li>
+            <li class="length">
+                <h5>length</h5>
+                <p>用长度值指定背景图像大小。不允许负值</p>
+            </li>
+            <li class="percentage">
+                <h5>percentage</h5>
+                <p>用百分比指定背景图像大小。不允许负值。百分比的值相对于容器的宽高</p>
+            </li>
+        </ul>
+    </section>
+    <section>
+        <h3>background-clip</h3>
+        <ul class="bg-clip">
+            <li class="border-box">
+                <h5>border-box 默认值</h5>
+                <p> 从border区域（不含border）开始向外裁剪背景</p>
+            </li>
+            <li class="padding-box">
+                <h5>padding-box</h5>
+                <p>从padding区域（不含padding）开始向外裁剪背景。</p>
+            </li>
+            <li class="content-box">
+                <h5>content-box</h5>
+                <p>从content区域开始向外裁剪背景。</p>
+            </li>
+            <li class="text">
+               
+                <p>遮罩效果</p>
+            </li>
+
+        </ul>
+    </section>
+</body>
+
+</html>
