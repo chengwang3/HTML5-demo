@@ -36,6 +36,34 @@
         .table-layout-fixed td {
             word-wrap: break-word;
         }
+
+        /* border-collapse */
+        .separate {
+            border-collapse: separate;
+        }
+
+        .collapse {
+            border-collapse: collapse;
+        }
+
+        /* border-spacing */
+        .border-spacing {
+            border-spacing: 10px;
+        }
+
+        /* caption-side */
+        .caption-side {
+            caption-side: bottom;
+        }
+
+        /* empty-cells */
+        .empty-cells:nth-of-type(1) {
+            empty-cells: show;
+        }
+
+        .empty-cells:nth-of-type(2) {
+            empty-cells: hide;
+        }
     </style>
 </head>
 
@@ -103,7 +131,7 @@
             </li>
 
         </ul>
-        <table class="table-layout-auto">
+        <table class="separate">
             <caption>separate</caption>
             <tr>
                 <th>table-heard-1</th>
@@ -121,7 +149,7 @@
                 <td>2-3</td>
             </tr>
         </table>
-        <table class="table-layout-fixed">
+        <table class="collapse">
             <caption>collapse</caption>
             <tr>
                 <th>table-heard-1</th>
@@ -137,6 +165,115 @@
                 <td>2-1</td>
                 <td>2-2</td>
                 <td>2-3</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="box">
+        <h2>border-spacing</h2>
+        <ul>
+            <li>
+                length :用长度值来定义行和单元格的边框在横向和纵向上的间距。不允许负值(默认值0)；
+            </li>
+
+
+        </ul>
+        <table class="border-spacing">
+            <tr>
+                <th>table-heard-1</th>
+                <th>table-heard-2</th>
+                <th>table-heard-3</th>
+            </tr>
+            <tr>
+                <td>1-1 xxxxxxxx</td>
+                <td>1-2 xxxx</td>
+                <td>1-3 xxxxxxxxxxxx</td>
+            </tr>
+            <tr>
+                <td>2-1</td>
+                <td>2-2</td>
+                <td>2-3</td>
+            </tr>
+        </table>
+
+    </section>
+    <section class="box">
+        <h2>caption-side</h2>
+        <ul>
+            <li>
+                top：指定caption在表格上边
+            </li>
+            <li>
+                bottom：指定caption在表格下边
+            </li>
+
+        </ul>
+        <table class="caption-side">
+            <caption>表格标题</caption>
+            <tr>
+                <th>table-heard-1</th>
+                <th>table-heard-2</th>
+                <th>table-heard-3</th>
+            </tr>
+            <tr>
+                <td>1-1 xxxxxxxx</td>
+                <td>1-2 xxxx</td>
+                <td>1-3 xxxxxxxxxxxx</td>
+            </tr>
+            <tr>
+                <td>2-1</td>
+                <td>2-2</td>
+                <td>2-3</td>
+            </tr>
+        </table>
+
+    </section>
+
+    <section class="box">
+        <h2>empty-cells</h2>
+        <ul>
+            <li>
+                hide：指定当表格的单元格无内容时，隐藏该单元格的边框。
+            </li>
+            <li>
+                show：指定当表格的单元格无内容时，显示该单元格的边框。(默认值)
+            </li>
+
+        </ul>
+        <table class="empty-cells">
+            <caption>show</caption>
+            <tr>
+                <th>table-heard-1</th>
+                <th>table-heard-2</th>
+                <th>table-heard-3</th>
+            </tr>
+            <tr>
+                <td>1-1 </td>
+                <td>1-2 </td>
+                <td>1-3 </td>
+            </tr>
+            <tr>
+                <td>2-1</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <table class="empty-cells">
+            <caption>hide</caption>
+            <tr>
+                <th>table-heard-1</th>
+                <th>table-heard-2</th>
+                <th>table-heard-3</th>
+            </tr>
+            <tr>
+                <td>1-1 </td>
+                <td>1-2 </td>
+                <td>1-3 </td>
+            </tr>
+            <tr>
+                <td>2-1</td>
+                <td></td>
+                <td></td>
             </tr>
         </table>
     </section>
