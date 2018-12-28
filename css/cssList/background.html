@@ -86,6 +86,142 @@
             text-align: center;
             font-size: 20px;
         }
+
+        /* background-origin */
+        .bg-origin li {
+            background-image: url('../../img/mm1.jpg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            margin-bottom: 20px;
+        }
+
+        .bg-origin .border-box {
+            border: 10px dashed red;
+            background-origin: border-box;
+        }
+
+        .bg-origin .padding-box {
+            border: 10px dashed red;
+            padding: 30px;
+            background-origin: padding-box;
+        }
+
+        .bg-origin .content-box {
+            border: 10px dashed red;
+            padding: 30px;
+            background-origin: content-box;
+        }
+
+        /* background-position 取值：
+        <percentage>：用百分比指定背景图像填充的位置。可以为负值。百分比相对于容器的宽高
+        <length>：用长度值指定背景图像填充的位置。可以为负值。
+        center：背景图像横向和纵向居中。
+        left：背景图像在横向上填充从左边开始。
+        right：背景图像在横向上填充从右边开始。
+        top：背景图像在纵向上填充从顶部开始。
+        bottom：背景图像在纵向上填充从底部开始。
+        
+        如果提供两个，第一个用于横坐标，第二个用于纵坐标。
+        如果只提供一个，该值将用于横坐标；纵坐标将默认为50%（即center）。
+
+        如果提供四个，每个<percentage>或<length>偏移前都必须跟着一个关键字（即left | center | right | top | bottom），偏移量相对关键字位置进行偏移。
+        */
+        .bg-position li {
+            background-image: url('../../img/logo_f.png');
+            background-repeat: no-repeat;
+            width: 150px;
+            height: 150px;
+            border: 1px solid red;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+        }
+
+        .bg-position .percentage {
+            background-position: 20% 50%;
+        }
+
+        .bg-position .length {
+            background-position: 20px 75px;
+        }
+
+        .bg-position .keyword {
+            background-position: left center;
+        }
+
+        .bg-position .keyword-and-value {
+            background-position: right 30px bottom 20px;
+        }
+
+        /* background-attachment 默认值：scroll
+        fixed：背景图像相对于窗体固定。
+        scroll：背景图像相对于元素固定，也就是说当元素内容滚动时背景图像不会跟着滚动，因为背景图像总是要跟着元素本身。但会随元素的祖先元素或窗体一起滚动。
+        local：背景图像相对于元素内容固定，也就是说当元素随元素滚动时背景图像也会跟着滚动，因为背景图像总是要跟着内容。（CSS3）
+         */
+        .bg-attachment li {
+            width: 150px;
+            height: 150px;
+            border: 1px solid red;
+            margin-bottom: 20px;
+            overflow-y: scroll;
+
+            background-image: url('../../img/logo_f.png');
+            background-repeat: no-repeat;
+        }
+
+        .bg-attachment .fixed {
+            width: 300px;
+            background-position: left top 100px;  /*相对于窗体*/
+            background-image: url('../../img/mm2.jpg');
+            background-attachment: fixed;
+            background-size: 300px 300px;
+        }
+
+        .bg-attachment .scroll {
+
+            background-position: left bottom 20px;
+            background-attachment: scroll;
+        }
+
+        .bg-attachment .local {
+
+
+            background-position: left bottom 20px;
+            background-attachment: local;
+        }
+        /* background 复合属性。检索或设置对象的背景特性（背景色 <' background-color '> 不能设置多组）
+
+        <' background-image '>：指定对象的背景图像。可以是真实图片路径或使用渐变创建的“背景图像”
+        <' background-position '>：指定对象的背景图像位置。
+        <' background-size '>：指定对象的背景图像的尺寸大小。
+        <' background-repeat '>：指定对象的背景图像如何铺排填充。
+        <' background-attachment '>：指定对象的背景图像是随对象内容滚动还是固定的。
+        <' background-origin '>：指定对象的背景图像显示的原点。
+        <' background-clip '>：指定对象的背景图像向外裁剪的区域。
+        <' background-color '>：指定对象的背景颜色。
+        
+        如果设置的多重背景图之间存在着交集（即存在着重叠关系），前面的背景图会覆盖在后面的背景图之上。
+
+        如果定义了多个背景图片，而其他属性只有一个参数值，则表明所有背景图片的该属性都应用同一个参数值。
+         */
+        .bg-background li{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            margin-bottom: 10px;
+        }
+        .bg-background .suoxie{
+            background:url('../../img/logo_f.png') no-repeat  scroll  30px 30px/60px 60px,
+                       url('../../img/logo_f.png') no-repeat  scroll  10px 70px/40px 40px ;
+        }
+        .bg-background .chaifen{
+            background-image: url('../../img/logo_f.png'),url('../../img/logo_f.png');
+            background-repeat: no-repeat;
+            background-position: 30px 30px,10px 70px;
+            background-size: 60px,40px;
+        }
     </style>
 </head>
 
@@ -131,10 +267,102 @@
                 <p>从content区域开始向外裁剪背景。</p>
             </li>
             <li class="text">
-               
+
                 <p>遮罩效果</p>
             </li>
 
+        </ul>
+    </section>
+    <section>
+        <h3>background-origin</h3>
+        <ul class="bg-origin">
+            <li class="border-box">
+                <h5>border-box</h5>
+                <p> 从border区域（含border）开始显示背景图像</p>
+            </li>
+            <li class="padding-box">
+                <h5>padding-box</h5>
+                <p>从padding区域（含padding）开始显示背景图像。</p>
+            </li>
+            <li class="content-box">
+                <h5>content-box</h5>
+                <p>从content区域开始显示背景图像。</p>
+            </li>
+        </ul>
+    </section>
+    <section>
+        <h3>background-position</h3>
+        <ul class="bg-position">
+            <li class="percentage">
+                <h5>percentage</h5>
+                <p>用百分比指定背景图像填充的位置。可以为负值</p>
+            </li>
+            <li class="length">
+                <h5>length</h5>
+                <p>用长度值指定背景图像填充的位置。可以为负值</p>
+            </li>
+            <li class="keyword">
+                <h5>关键字</h5>
+                <p>用百分比指定背景图像填充的位置。center,left,right,top,bottom</p>
+            </li>
+            <li class="keyword-and-value">
+                <h5>关键字 + 偏移值</h5>
+            </li>
+        </ul>
+    </section>
+    <section>
+        <h3>background-attachment</h3>
+        <ul class="bg-attachment">
+            <li class="fixed">
+                <br>
+                <br>
+                <br>
+                <br>
+                <h5>fixed</h5>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </li>
+            <li class="scroll">
+                <br>
+                <br>
+                <br>
+                <br>
+                <h5>scroll</h5>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+            </li>
+            <li class="local">
+                <br>
+                <br>
+                <br>
+                <br>
+                <h5>local</h5>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </li>
+        </ul>
+    </section>
+ <section>
+        <h3>background</h3>
+        <ul class="bg-background">
+            <li class="suoxie">
+                <h5>缩写</h5>
+              
+            </li>
+            <li class="chaifen">
+                <h5>拆分</h5>
+                
+            </li>
         </ul>
     </section>
 </body>
